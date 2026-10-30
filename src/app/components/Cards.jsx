@@ -15,9 +15,9 @@ export default function Cards({ product }) {
           className="size-[250px] "
         ></Image>
 
-        <h1 className="text-black m-1">{product.title}</h1>
-        <div className="flex justify-stretch gap-7">
-          <p className="text-black m-1">$ 5:00</p>
+      <h1 className="text-black m-1">{product.title}</h1>
+      <div className="flex justify-stretch gap-7">
+        <p className="text-black m-1">${product.price}</p>
 
           <GiShoppingCart className="text-black m-1" />
         </div>
