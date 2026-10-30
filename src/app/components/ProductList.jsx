@@ -1,28 +1,25 @@
 import { Suspense } from "react";
-import Image from "next/image";
-
-const Cards = async ({category}) => {
-return(
-     <Suspense fallback={<div>Loading...</div>}>
-<FetchGroceries category ={category}/>
-</Suspense>
-);
+import Cards from "./Cards";
+const ProductList = async () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FetchGroceries />
+    </Suspense>
+  );
 };
 
-const FetchGroceries = async ({category}) =>{
-
-const url = category
-    ? `https://dummyjson.com/products/category/${category}`
-    : "https://dummyjson.com/products";
+const FetchGroceries = async () => {
+  const url = `https://dummyjson.com/products/category/groceries`;
 
   const response = await fetch(url);
-  const { products } = await response.json();
-
-  return(
-{products.map((product) => (
-<Image loading= "eager" alt= {product.title ||"product-image"} src={product.thumbnail} width={300} height={200}/>
-))}
-
+  const data = await response.json();
+  console.log(data.products);
+  return (
+    <div>
+      {data.products.map((product) => (
+        <Cards key={product.id} product={product} />
+      ))}
+    </div>
   );
-export default Cards;
 };
+export default ProductList;

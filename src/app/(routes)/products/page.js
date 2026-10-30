@@ -1,4 +1,4 @@
-import Cards from "@/app/components/Cards";
-export default function ProductList() {
-  return <Cards />;
+import ProductList from "@/app/components/ProductList";
+export default function ProductListe() {
+  return <ProductList />;
 }
