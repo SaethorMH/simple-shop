@@ -3,7 +3,7 @@ import { IoSearch } from "react-icons/io5";
 
 const SearchBar = () => {
   return (
-    <Form action="products/" className="h-fit flex items-center">
+    <Form action="/products/" className="h-fit flex items-center">
       <input
         className="border border-r-0 rounded-full rounded-r-none indent-8 py-1"
         type="text"

@@ -9,7 +9,7 @@ const Header = () => {
         <SearchBar />
         <div className="flex gap-12 align-middle place-items-center">
           <Link href={"/"}>Home</Link>
-          <Link href={"products/"}>Products</Link>
+          <Link href={"/products/"}>Products</Link>
           <button>Cart</button>
         </div>
       </div>
