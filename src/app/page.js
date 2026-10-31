@@ -1,5 +1,5 @@
-import Image from "next/image";
 
-export default function Home() {
-  return <h1>Her Er forsiden</h1>;
+import Hero from "./components/Hero"
+export default function Home({}) {
+
 }
