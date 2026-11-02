@@ -1,5 +1,12 @@
-import Image from "next/image";
 
+import Hero from "./components/Hero"
+import PopularProducts from "./components/Popularproducts"
 export default function Home() {
-  return <h1>Her Er forsiden</h1>;
+return (
+  <>
+    <Hero />
+    <PopularProducts />
+  </>
+);
+
 }

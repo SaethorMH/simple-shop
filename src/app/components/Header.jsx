@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Logo from "./Logo";
+   import { GiShoppingCart } from "react-icons/gi";
+   import Popover from "./Popovercheckout";
 import SearchBar from "./SearchBar";
 const Header = () => {
   return (
@@ -10,7 +12,7 @@ const Header = () => {
         <div className="flex gap-12 align-middle place-items-center">
           <Link href={"/"}>Home</Link>
           <Link href={"/products/"}>Products</Link>
-          <button>Cart</button>
+          <Popover icon={<GiShoppingCart />} />
         </div>
       </div>
     </header>

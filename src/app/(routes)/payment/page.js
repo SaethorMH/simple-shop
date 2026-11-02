@@ -1,9 +1,15 @@
 import CardProduct from "@/app/components/CardProduct";
-export default function ProductListe() {
+import Popover from "@/app/components/Popovercheckout";
+export default async function Page({params}) {
+   const { id: id } = await params;
+   const url = `https://dummyjson.com/products/${id}`;
+   const response = await fetch(url);
+   const product = await response.json();
+  
   return (
     <>
-      <section className="bg-[#E9E9E9] ">hejsa </section>
-      <CardProduct />
+      <CardProduct product={product} />
+      <Popover product={product} />
     </>
   );
 };

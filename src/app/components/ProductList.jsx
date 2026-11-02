@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import Cards from "./Cards";
+
 import SearchBar from "./SearchBar";
 const ProductList = async ({ searchParams }) => {
   return (
@@ -32,7 +33,10 @@ const FetchGroceries = async ({ searchParams }) => {
   return (
     <div className="flex flex-wrap mx-auto items-center justify-center">
       {data.products.map((product) => (
-        <Cards key={product.id} product={product} />
+        <>
+          <Cards key={product.id} product={product} />
+          
+        </>
       ))}
     </div>
   );
