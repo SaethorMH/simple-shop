@@ -1,21 +1,18 @@
-import CardProduct from "@/app/components/CardProduct";
+import Cart from "@/app/components/Cart";
 import Popover from "@/app/components/Popovercheckout";
-export default async function Page({params}) {
-   const { id: id } = await params;
-   const url = `https://dummyjson.com/products/${id}`;
-   const response = await fetch(url);
-   const product = await response.json();
-  
+import { useCart } from "@/app/components/useCart";
+
+export default async function Page({ params }) {
+  const { id: id } = await params;
+  const url = `https://dummyjson.com/products/${id}`;
+  const response = await fetch(url);
+  const product = await response.json();
+
   return (
     <>
-      <CardProduct product={product} />
+      <Cart />
+
       <Popover product={product} />
     </>
   );
-};
-
-
-
-
-
-
+}
