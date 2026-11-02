@@ -1,5 +1,6 @@
-import CardProduct from "@/app/components/CardProduct";
+import Cart from "@/app/components/Cart";
 import Popover from "@/app/components/Popovercheckout";
+import { useCart } from "@/app/components/useCart";
 
 export default async function Page({ params }) {
   const { id: id } = await params;
@@ -9,7 +10,8 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <CardProduct product={product} />
+      <Cart />
+
       <Popover product={product} />
     </>
   );

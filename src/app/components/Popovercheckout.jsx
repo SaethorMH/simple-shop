@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useCart } from "./useCart";
+
 export default function Popovercheckout({ icon }) {
   const cart = useCart((state) => state.cartItems);
   const total = useCart((state) => state.cartTotal);
