@@ -1,6 +1,7 @@
 import { Suspense } from "react";
 import Cards from "./Cards";
-import FetchCategories from "./CategorySelector";
+import FetchCategories from "./FetchCategories";
+import CategorySelector from "./CategorySelector";
 import SearchBar from "./SearchBar";
 const ProductList = async ({ searchParams }) => {
   return (
@@ -12,14 +13,10 @@ const ProductList = async ({ searchParams }) => {
 
 const FetchGroceries = async ({ searchParams }) => {
   console.log(await searchParams);
-  const { search } = await searchParams;
-  const url = search
-    ? search.searchParams === ""
-      ? "https://dummyjson.com/products?limit=8"
-      : `https://dummyjson.com/products/search?q=${search}&limit=8`
-    : "https://dummyjson.com/products?limit=8";
+  const { search, category } = await searchParams;
+  const url = category ? `https://dummyjson.com/products/category/${category}` : search ? (search.searchParams === "" ? "https://dummyjson.com/products?limit=8" : `https://dummyjson.com/products/search?q=${search}&limit=8`) : "https://dummyjson.com/products?limit=8";
 
-  const response = await fetch(url);
+  const [response, categories] = await Promise.all([fetch(url), FetchCategories()]);
   const data = await response.json();
   console.log(data.products);
   if (data.products.length < 1) {
@@ -32,13 +29,11 @@ const FetchGroceries = async ({ searchParams }) => {
   }
   return (
     <>
-      <FetchCategories  />
+      <CategorySelector categories={categories} />
 
       <div className="flex flex-wrap mx-auto items-center justify-center">
         {data.products.map((product) => (
-        
-            <Cards key={product.id} product={product} />
-         
+          <Cards key={product.id} product={product} />
         ))}
       </div>
     </>
