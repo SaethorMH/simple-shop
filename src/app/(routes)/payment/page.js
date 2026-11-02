@@ -1,5 +1,5 @@
 import CardProduct from "@/app/components/CardProduct";
-import BasketCase from "@/app/components/basketcase";
+import Popover from "@/app/components/Popovercheckout";
 export default async function Page({params}) {
    const { id: id } = await params;
    const url = `https://dummyjson.com/products/${id}`;
@@ -9,7 +9,7 @@ export default async function Page({params}) {
   return (
     <>
       <CardProduct product={product} />
-      <BasketCase product={product} />
+      <Popover product={product} />
     </>
   );
 };
