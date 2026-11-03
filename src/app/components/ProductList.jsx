@@ -3,6 +3,7 @@ import Cards from "./Cards";
 import FetchCategories from "./FetchCategories";
 import CategorySelector from "./CategorySelector";
 import SearchBar from "./SearchBar";
+import LimitSelector from "./LimitSelector";
 const ProductList = async ({ searchParams }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -13,10 +14,21 @@ const ProductList = async ({ searchParams }) => {
 
 const FetchGroceries = async ({ searchParams }) => {
   console.log(await searchParams);
-  const { search, category } = await searchParams;
-  const url = category ? `https://dummyjson.com/products/category/${category}` : search ? (search.searchParams === "" ? "https://dummyjson.com/products?limit=8" : `https://dummyjson.com/products/search?q=${search}&limit=8`) : "https://dummyjson.com/products?limit=8";
 
-  const [response, categories] = await Promise.all([fetch(url), FetchCategories()]);
+  const { search, category, limit: limitParam } = await searchParams;
+  const limit = Number(limitParam) || 8;
+  const url = category
+    ? `https://dummyjson.com/products/category/${category}`
+    : search
+      ? search.searchParams === ""
+        ? `https://dummyjson.com/products?limit=${limit}`
+        : `https://dummyjson.com/products/search?q=${search}&limit=${limit}`
+      : `https://dummyjson.com/products?limit=${limit}`;
+
+  const [response, categories] = await Promise.all([
+    fetch(url),
+    FetchCategories(),
+  ]);
   const data = await response.json();
   console.log(data.products);
   if (data.products.length < 1) {
@@ -31,8 +43,9 @@ const FetchGroceries = async ({ searchParams }) => {
   return (
     <>
       <CategorySelector categories={categories} />
-    
-      <div className="flex flex-wrap mx-auto items-center  justify-center  gap-10">
+      <LimitSelector />
+
+      <div className="flex flex-wrap mx-auto items-center  justify-center  gap-5">
         {data.products.map((product) => (
           <Cards key={product.id} product={product} />
         ))}
