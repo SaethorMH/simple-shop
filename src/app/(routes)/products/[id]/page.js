@@ -1,25 +1,43 @@
 
-import Image from "next/image";
+/* import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { IoIosPerson } from "react-icons/io";
-
+import { useCart } from "@/app/components/useCart";
 import Link from "next/link";
-export default async function DetailView({ params }) {
+import { use } from "react"; */
+import Backtoproducts from "@/app/components/Backtoproducts";
+import DetailView from "@/app/components/Detailview";
+import Reviews from "@/app/components/Reviews";
+export default async function Page({ params }) {
   const { id: id } = await params;
   const url = `https://dummyjson.com/products/${id}`;
   const response = await fetch(url);
   const product = await response.json();
-
+/* const addProduct = useCart((state) => state.addItem);
   const ratings = (rating) =>
   [1, 2, 3, 4, 5].map((number) => 
     (number <= Math.round(rating) ? <FaStar key={number} className="text-amber-300 size-7" /> : null ) 
-);
+); */
       
-
-
-return (
+return(
   <>
-    <Link href="/products" className="text-2xl m-3 pl-20 hover:text-blue-500  ">
+  <Backtoproducts/>
+  <DetailView product={product} />
+  <Reviews reviews={product.reviews} />
+  </>
+)
+
+
+
+
+
+
+
+
+
+/* return (
+  <>
+   {/*  <Link href="/products" className="text-2xl m-3 pl-20 hover:text-blue-500  ">
       {"<"} Back to products
     </Link>
     <section className="grid grid-cols-2 shadow-xl max-w-[80%] p-5  self-center bg-white m-7 border-2 border-[#305A89]">
@@ -29,7 +47,7 @@ return (
         <div className="relative w-[50%] h-2 after:content-[''] after:absolute after:-bottom-0 after:-top-0 after:bg-[#515151] after:opacity-50 after:w-full after:h-[2px]"></div>
         <p className="mb-3 text-2xl">{product.price ? product.price + "$" : "Free"}</p>
         <p className=" mt-1 my-3 text-xl">{product.description ?? "PLACEHOLDER DESCRIPTION"}</p>
-        <button className=" mx-auto ml-2 p-3 block bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">Add to cart</button>
+        <button onClick={()=>addProduct(product)} className=" mx-auto ml-2 p-3 block bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">Add to cart</button>
       </div>
       <div className="">
         <p className="flex justify-start gap-5">Rating:{ratings(product.rating)}</p>
@@ -51,6 +69,6 @@ return (
         ))}
       </div>
     </div>
-  </>
-);
-}
+ /*  </> */}
+/* );
+}  */

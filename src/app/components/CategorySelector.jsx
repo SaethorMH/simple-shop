@@ -6,7 +6,7 @@ export const CategorySelector = ({ categories }) => {
 
   return (
     <>
-      <select  onChange={(e) => router.push(`?category=${e.target.value}`)}>
+      <select className="size-fit border-solid border-2 border-blue-500 capitalize "  onChange={(e) => router.push(`?category=${e.target.value}`)}>
     
         <option value="" className=" text-center ">
           Category
