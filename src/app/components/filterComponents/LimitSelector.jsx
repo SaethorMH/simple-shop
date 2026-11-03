@@ -18,7 +18,7 @@ export default function LimitSelector() {
     <select
       value={current}
       onChange={handleChange}
-      className="bg-amber-400 w-fit p-1 place-self-center text-right"
+      className=" w-full p-1 place-self-center text-right"
     >
       <option value="8">Items per page:</option>
       <option value="16">16</option>
