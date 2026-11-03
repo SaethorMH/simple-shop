@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { GiShoppingCart } from "react-icons/gi";
 import Link from "next/link";
-import { useCart } from "./useCart";
+import { useCart } from "../cartPaymentComponents/useCart";
 
 export default function Cards({ product }) {
   const addItem = useCart((state) => state.addItem);
