@@ -5,12 +5,15 @@ import { GiPriceTag } from "react-icons/gi";
 export default function Hero(){
     return (
       <>
-        <article className="relative text-center  ">
-          <div className="absolute  top-[60%]  left-[33%] z-10 text-3xl font-extrabold">
-            <h1>Welcome to the shop</h1>
-            <h3>Everything you could ever need</h3>
+        <article className="relative w-full h-[100vh]   ">
+          <div className="absolute  top-[15%]  right-[39%] z-10 text-3xl font-extrabold rounded-xl">
+            <div className="bg-white ">
+              <h1 className="text-blue-400">Welcome to Simple shop</h1>
+            </div>
+            <p className="mt-[7rlh] text-[#F9F6EE] size-m">See the newest collection here</p>
           </div>
-          <Image src="/Homepageimg.webp" width={700} height={700} alt="hero" className="mx-auto mt-3 "></Image>
+          <button className=" absolute top-[15%]  right-[39%]  py-2 mt-10 px-4 mx-auto bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">See all products</button>
+          <Image src="/simple.shop.img.avif" fill={true} alt="hero" className=" size-fit cover aspect-video mx-auto mt-3 inline-block h-screen "></Image>
         </article>
         <section className="flex justify-evenly gap-3 shadow-xl bg-white mt-5 py-5">
           <div>
