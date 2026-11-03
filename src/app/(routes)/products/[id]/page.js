@@ -2,14 +2,15 @@
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { IoIosPerson } from "react-icons/io";
-
+import { useCart } from "@/app/components/useCart";
 import Link from "next/link";
+import { use } from "react";
 export default async function DetailView({ params }) {
   const { id: id } = await params;
   const url = `https://dummyjson.com/products/${id}`;
   const response = await fetch(url);
   const product = await response.json();
-
+const addProduct = useCart((state) => state.addItem);
   const ratings = (rating) =>
   [1, 2, 3, 4, 5].map((number) => 
     (number <= Math.round(rating) ? <FaStar key={number} className="text-amber-300 size-7" /> : null ) 
@@ -29,7 +30,7 @@ return (
         <div className="relative w-[50%] h-2 after:content-[''] after:absolute after:-bottom-0 after:-top-0 after:bg-[#515151] after:opacity-50 after:w-full after:h-[2px]"></div>
         <p className="mb-3 text-2xl">{product.price ? product.price + "$" : "Free"}</p>
         <p className=" mt-1 my-3 text-xl">{product.description ?? "PLACEHOLDER DESCRIPTION"}</p>
-        <button className=" mx-auto ml-2 p-3 block bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">Add to cart</button>
+        <button onClick={()=>addProduct(product)} className=" mx-auto ml-2 p-3 block bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">Add to cart</button>
       </div>
       <div className="">
         <p className="flex justify-start gap-5">Rating:{ratings(product.rating)}</p>
