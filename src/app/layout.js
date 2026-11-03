@@ -1,8 +1,9 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import { Roboto_Serif } from "next/font/google";
 import "./globals.css";
-
+import Footer from "./components/layoutGeneralComponets/Footer";
 import Header from "./components/layoutGeneralComponets/Header";
+import Subscribe from "./components/layoutGeneralComponets/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <Header />
         {children}
       </body>
+      <Footer  />
     </html>
   );
 }

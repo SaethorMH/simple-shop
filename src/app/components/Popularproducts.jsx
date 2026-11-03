@@ -1,7 +1,7 @@
 import Cards from "./productListComponents/Cards";
 import Link from "next/link";
 export default async function PopularProducts() {
-  const response = await fetch("https://dummyjson.com/products?limit=3");
+  const response = await fetch("https://dummyjson.com/products?limit=5");
   const data = await response.json();
   return (
     <>
