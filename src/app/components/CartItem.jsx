@@ -19,7 +19,7 @@ export default function CartItem({ product }) {
             <p>${product.price}</p>
           </div>
           <button
-            onClick={(product) => remove(product)}
+            onClick={() => remove(product)}
             className="hover:cursor-pointer  hover:bg-gray-50 border size-10 m-4"
           >
             x

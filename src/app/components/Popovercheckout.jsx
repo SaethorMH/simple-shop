@@ -9,12 +9,21 @@ export default function Popovercheckout({ icon }) {
   const remove = useCart((state) => state.removeItem);
   return (
     <>
-      <button
-        popoverTarget="popover"
-        className="[anchor-name:--anchor] hover:cursor-pointer"
-      >
-        {icon}
-      </button>
+      <div className="grid">
+        {cart.length > 0 ? (
+          <p className="col-1 row-1 place-self-start text-[12px] w-5 h-5 text-center border font-bold rounded-full">
+            {cart.length}
+          </p>
+        ) : (
+          ""
+        )}
+        <button
+          popoverTarget="popover"
+          className={` bg-white border col-1 row-1 [anchor-name:--anchor] rounded-full p-1 m-2   hover:cursor-pointer ${cart.length > 0 ? "text-green-800 text-3xl" : ""}`}
+        >
+          {icon}
+        </button>
+      </div>
 
       <div
         id="popover"
@@ -41,7 +50,10 @@ export default function Popovercheckout({ icon }) {
         </div>
         <p className="place-self-center">{total.toFixed(2)}$</p>
 
-        <Link href={"/payment"}>
+        <Link
+          onClick={() => document.getElementById("popover")?.hidePopover()}
+          href={"/payment"}
+        >
           {" "}
           <button className="mx-auto p-2 block bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer">
             Checkout
