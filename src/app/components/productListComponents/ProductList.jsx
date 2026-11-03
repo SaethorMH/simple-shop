@@ -1,9 +1,10 @@
 import { Suspense } from "react";
 import Cards from "./Cards";
-import FetchCategories from "./FetchCategories";
-import CategorySelector from "./CategorySelector";
-import SearchBar from "./SearchBar";
-import LimitSelector from "./LimitSelector";
+import FetchCategories from "../FetchCategories";
+// import CategorySelector from "./filterComponents/CategorySelector";
+import SearchBar from "../layoutGeneralComponets/SearchBar";
+// import LimitSelector from "./filterComponents/LimitSelector";
+import FilterSidebar from "../filterComponents/FilterSidebar";
 const ProductList = async ({ searchParams }) => {
   return (
     <Suspense fallback={<div>Loading...</div>}>
@@ -42,8 +43,7 @@ const FetchGroceries = async ({ searchParams }) => {
 
   return (
     <>
-      <CategorySelector categories={categories} />
-      <LimitSelector />
+      <FilterSidebar categories={categories} />
 
       <div className="flex flex-wrap mx-auto items-center  justify-center  gap-5">
         {data.products.map((product) => (

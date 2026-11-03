@@ -1,4 +1,3 @@
-
 /* import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { IoIosPerson } from "react-icons/io";
@@ -6,36 +5,28 @@ import { useCart } from "@/app/components/useCart";
 import Link from "next/link";
 import { use } from "react"; */
 import Backtoproducts from "@/app/components/Backtoproducts";
-import DetailView from "@/app/components/Detailview";
-import Reviews from "@/app/components/Reviews";
+import DetailView from "@/app/components/detailviewComponents/Detailview";
+import Reviews from "@/app/components/detailviewComponents/Reviews";
 export default async function Page({ params }) {
   const { id: id } = await params;
   const url = `https://dummyjson.com/products/${id}`;
   const response = await fetch(url);
   const product = await response.json();
-/* const addProduct = useCart((state) => state.addItem);
+  /* const addProduct = useCart((state) => state.addItem);
   const ratings = (rating) =>
   [1, 2, 3, 4, 5].map((number) => 
     (number <= Math.round(rating) ? <FaStar key={number} className="text-amber-300 size-7" /> : null ) 
 ); */
-      
-return(
-  <>
-  <Backtoproducts/>
-  <DetailView product={product} />
-  <Reviews reviews={product.reviews} />
-  </>
-)
 
+  return (
+    <>
+      <Backtoproducts />
+      <DetailView product={product} />
+      <Reviews reviews={product.reviews} />
+    </>
+  );
 
-
-
-
-
-
-
-
-/* return (
+  /* return (
   <>
    {/*  <Link href="/products" className="text-2xl m-3 pl-20 hover:text-blue-500  ">
       {"<"} Back to products
@@ -69,6 +60,7 @@ return(
         ))}
       </div>
     </div>
- /*  </> */}
+ /*  </> */
+}
 /* );
 }  */
