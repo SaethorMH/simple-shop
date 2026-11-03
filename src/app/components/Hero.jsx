@@ -6,13 +6,13 @@ export default function Hero(){
     return (
       <>
         <article className="relative text-center  ">
-          <div className="absolute  top-[68%]  left-[35%] z-10 text-3xl font-extrabold">
+          <div className="absolute  top-[60%]  left-[33%] z-10 text-3xl font-extrabold">
             <h1>Welcome to the shop</h1>
             <h3>Everything you could ever need</h3>
           </div>
-          <Image src="/Homepageimg.webp" width={500} height={500} alt="hero" className="mx-auto mt-3 "></Image>
+          <Image src="/Homepageimg.webp" width={700} height={700} alt="hero" className="mx-auto mt-3 "></Image>
         </article>
-        <section className="flex justify-evenly gap-3 shadow-xl bg-[#E9E9E9] mt-5 py-5">
+        <section className="flex justify-evenly gap-3 shadow-xl bg-white mt-5 py-5">
           <div>
             <p>Free shipping</p>
             <LiaShippingFastSolid className="mx-auto" />
