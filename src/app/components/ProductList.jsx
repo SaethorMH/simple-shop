@@ -27,11 +27,12 @@ const FetchGroceries = async ({ searchParams }) => {
       </div>
     );
   }
+
   return (
     <>
       <CategorySelector categories={categories} />
-
-      <div className="flex flex-wrap mx-auto items-center justify-center">
+    
+      <div className="flex flex-wrap mx-auto items-center  justify-center  gap-10">
         {data.products.map((product) => (
           <Cards key={product.id} product={product} />
         ))}

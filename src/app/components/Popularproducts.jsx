@@ -15,7 +15,7 @@ export default async function PopularProducts(){
           </div>
           <div className="flex justify-center">
             <Link href={"/products/"}>
-              <button className="py-2 mt-10 px-4 mx-auto bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer">See all products</button>
+              <button className="py-2 mt-10 px-4 mx-auto bg-[#D9D9D9] rounded-3xl border-2 border-[#305A89] cursor-pointer hover:bg-blue-500">See all products</button>
             </Link>
           </div>
         </article>
