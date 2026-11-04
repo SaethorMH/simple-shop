@@ -6,7 +6,7 @@ import { useState } from "react";
 const FilterSidebar = ({ categories }) => {
   const [maxPrice, setMaxPrice] = useState(2000);
   return (
-    <aside className=" sticky top-4 rounded shadow-2xl bg-gray-200 flex gap-5 flex-col w-sm h-fit p-4 mt-8">
+    <aside className=" sticky top-25 rounded shadow-2xl bg-gray-200 flex gap-5 flex-col w-sm h-fit p-4 mt-8">
       <h2>Filter Options:</h2>
 
       <details className="bg-gray-50">

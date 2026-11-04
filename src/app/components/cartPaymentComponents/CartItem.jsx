@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useCart } from "./useCart";
+import { RxCross2 } from "react-icons/rx";
 
 export default function CartItem({ product }) {
   const remove = useCart((state) => state.removeItem);
@@ -20,9 +21,9 @@ export default function CartItem({ product }) {
           </div>
           <button
             onClick={() => remove(product)}
-            className="hover:cursor-pointer  hover:bg-gray-50 border size-10 m-4"
+            className="hover:cursor-pointer rounded-full p-1 m-2 text-2xl    hover:scale-120 transition-all text-white bg-black"
           >
-            x
+            <RxCross2 />
           </button>
         </div>
       </article>
