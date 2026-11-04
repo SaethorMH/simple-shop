@@ -4,7 +4,7 @@ import { IoIosPerson } from "react-icons/io";
 import { useCart } from "@/app/components/useCart";
 import Link from "next/link";
 import { use } from "react"; */
-import Backtoproducts from "@/app/components/Backtoproducts";
+import Backtoproducts from "@/app/components/detailviewComponents/Backtoproducts";
 import DetailView from "@/app/components/detailviewComponents/Detailview";
 import Reviews from "@/app/components/detailviewComponents/Reviews";
 export default async function Page({ params }) {
