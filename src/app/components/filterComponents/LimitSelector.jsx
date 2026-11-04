@@ -18,9 +18,11 @@ export default function LimitSelector() {
     <select
       value={current}
       onChange={handleChange}
-      className=" w-full p-1 place-self-center text-right"
+      className="w-full  p-2  rounded shadow bg-sky-200 capitalize mb-2 text-[12px]"
     >
-      <option value="8">Items per page:</option>
+      <option value="8" className=" text-center ">
+        Items per page:
+      </option>
       <option value="16">16</option>
       <option value="32">32</option>
       <option value="99999">All</option>

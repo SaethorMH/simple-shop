@@ -5,8 +5,8 @@ import Popover from "../cartPaymentComponents/Popovercheckout";
 import SearchBar from "./SearchBar";
 const Header = () => {
   return (
-    <header className="py-6 shadow-xl bg-white">
-      <div className="flex justify-evenly place-items-center">
+    <header className="py-6 shadow-xl bg-white sticky top-0 z-10 ">
+      <div className="flex max-w-[80svw] m-auto gap-10 justify-evenly place-items-center">
         <Logo />
         <SearchBar />
         <div className="flex gap-12 align-middle place-items-center ">
